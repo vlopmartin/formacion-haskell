@@ -74,12 +74,15 @@ ejemplo1 = replicate 3 . head . filter (>3)
 ejemplo2 :: [Int] -> [Int]
 ejemplo2 = reverse . tail . map (*2)
 
-ejemplo3 :: [Int] -> Int
-ejemplo3 = length . filter (==2) . take 10 . cycle . init
+ejemplo3 :: [Int] -> [Int]
+ejemplo3 = foldr (:) [0]
+
+ejemplo4 :: [Int] -> Int
+ejemplo4 = length . filter (==2) . take 10 . cycle . init
 -- Ver https://hackage.haskell.org/package/base-4.12.0.0/docs/Prelude.html#g:13
 
 -- Ejercicio
--- Sumar las áreas de los 100 primeros círculos cuyos radios son los inversos de los enteros
+-- Sumar las áreas de los círculos cuyos radios son los inversos de los 10 primeros enteros
 enteros :: [Double]
 enteros = [1..]
 
