@@ -51,6 +51,7 @@ data Forma = Rectangulo Punto Punto | Circulo Punto Double deriving (Eq, Show)
 
 area :: Forma -> Double
 area (Rectangulo (Punto x y) (Punto x' y')) = (x' - x) * (y' - y)
+area (Circulo _ r) = pi * r * r
 
 masGrande :: Forma -> Forma -> Forma
 masGrande f f'
@@ -64,7 +65,7 @@ instance Ord Forma where
 
 -- Funciones con variables de tipo
 -- Las typeclasses nos permiten escribir funciones más generales
-masPequeña :: Forma -> Forma -> Forma
+masPequeña :: (Ord a) => a -> a -> a
 masPequeña = min
 
 -- Herramientas para trabajar con listas
